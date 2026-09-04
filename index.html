@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ironbridge FC | Fan Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="crest">
+        <span class="crest-mark">IFC</span>
+        <span class="club-name">Ironbridge FC</span>
+      </div>
+      <nav class="main-nav">
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#squad">Squad</a></li>
+          <li><a href="#fixtures">Fixtures</a></li>
+          <li><a href="#fanzone">Fan Zone</a></li>
+          <li><a href="#news">News</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <p class="hero-kicker">Matchday countdown</p>
+      <h1 id="countdown">--d --h --m</h1>
+      <p class="hero-sub">Ironbridge FC vs Kestrel United — Riverside Ground</p>
+    </div>
+  </section>
+
+  <main>
+
+    <section id="squad" class="section">
+      <h2>First Team Squad</h2>
+      <div class="card-grid" id="squadGrid"></div>
+    </section>
+
+    <section id="fixtures" class="section alt">
+      <h2>Fixtures &amp; Results</h2>
+      <div class="table-wrap">
+        <table id="fixturesTable">
+          <thead>
+            <tr><th>Date</th><th>Opponent</th><th>Venue</th><th>Result</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="fanzone" class="section">
+      <h2>Fan Zone</h2>
+
+      <div class="fanzone-grid">
+        <div class="poll-card">
+          <h3>Man of the Match</h3>
+          <div id="pollOptions"></div>
+          <p class="poll-total">Total votes: <span id="pollTotal">0</span></p>
+        </div>
+
+        <div class="comments-card">
+          <h3>Terrace Talk</h3>
+          <div class="comment-list" id="commentList"></div>
+          <form id="commentForm" class="comment-form">
+            <input type="text" id="commentName" placeholder="Your name" required />
+            <textarea id="commentText" placeholder="Say something..." required></textarea>
+            <button type="submit">Post</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="news" class="section alt">
+      <h2>Latest News</h2>
+      <div class="news-grid" id="newsGrid"></div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Ironbridge FC. This is a practice project, not a real club.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

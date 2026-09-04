@@ -1,0 +1,356 @@
+/* ---- Tokens ---- */
+:root {
+  --pitch: #0F3D2E;      /* deep forest green - primary */
+  --pitch-dark: #0A2C21;
+  --gold: #D8A93A;        /* accent */
+  --paper: #F2F0E8;       /* background */
+  --ink: #1B1B1B;         /* body text */
+  --brick: #B23A2E;       /* results / alerts */
+  --line: rgba(15, 61, 46, 0.15);
+
+  --font-head: 'Archivo Black', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  --radius: 4px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.5;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-head);
+  line-height: 1.1;
+  margin: 0 0 0.5em;
+}
+
+a { color: inherit; }
+
+/* ---- Header ---- */
+.site-header {
+  background: var(--pitch);
+  color: var(--paper);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 14px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.crest {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.crest-mark {
+  background: var(--gold);
+  color: var(--pitch-dark);
+  font-family: var(--font-head);
+  font-size: 0.8rem;
+  padding: 6px 8px;
+  border-radius: var(--radius);
+}
+
+.club-name {
+  font-family: var(--font-head);
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--paper);
+  font-weight: 500;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 4px;
+  transition: border-color 0.15s ease;
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+  border-color: var(--gold);
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--paper);
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+/* ---- Hero ---- */
+.hero {
+  background: linear-gradient(180deg, var(--pitch) 0%, var(--pitch-dark) 100%);
+  color: var(--paper);
+  text-align: center;
+  padding: 64px 20px 72px;
+}
+
+.hero-kicker {
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 6vw, 3.4rem);
+  color: var(--paper);
+}
+
+.hero-sub {
+  color: rgba(242, 240, 232, 0.8);
+  margin-top: 8px;
+}
+
+/* ---- Sections ---- */
+.section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 56px 20px;
+}
+
+.section.alt {
+  background: #E8E4D6;
+  max-width: none;
+}
+
+.section.alt > * {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---- Squad cards ---- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 16px;
+}
+
+.player-card {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px;
+  text-align: center;
+}
+
+.player-number {
+  font-family: var(--font-head);
+  font-size: 1.6rem;
+  color: var(--gold);
+  -webkit-text-stroke: 1px var(--pitch);
+}
+
+.player-name {
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+.player-pos {
+  color: #666;
+  font-size: 0.85rem;
+}
+
+/* ---- Fixtures table ---- */
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+th, td {
+  text-align: left;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+}
+
+th {
+  background: var(--pitch);
+  color: var(--paper);
+  font-weight: 600;
+}
+
+.result-win { color: #1E7A3F; font-weight: 600; }
+.result-loss { color: var(--brick); font-weight: 600; }
+.result-draw { color: #8A6D00; font-weight: 600; }
+
+/* ---- Fan zone ---- */
+.fanzone-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.poll-card, .comments-card {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+
+.poll-option {
+  margin-bottom: 12px;
+}
+
+.poll-option button {
+  width: 100%;
+  text-align: left;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 10px 12px;
+  cursor: pointer;
+  font-family: var(--font-body);
+  position: relative;
+  overflow: hidden;
+}
+
+.poll-bar {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  background: var(--gold);
+  opacity: 0.35;
+  z-index: 0;
+}
+
+.poll-option button span {
+  position: relative;
+  z-index: 1;
+}
+
+.poll-total {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 8px;
+}
+
+.comment-list {
+  margin-bottom: 16px;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.comment {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.comment strong {
+  color: var(--pitch);
+}
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.comment-form input,
+.comment-form textarea {
+  font-family: var(--font-body);
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  resize: vertical;
+}
+
+.comment-form button {
+  align-self: flex-start;
+  background: var(--pitch);
+  color: var(--paper);
+  border: none;
+  padding: 10px 18px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.comment-form button:hover {
+  background: var(--pitch-dark);
+}
+
+/* ---- News ---- */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.news-card {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px;
+}
+
+.news-date {
+  color: var(--gold);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* ---- Footer ---- */
+.site-footer {
+  background: var(--pitch-dark);
+  color: rgba(242, 240, 232, 0.7);
+  text-align: center;
+  padding: 20px;
+  font-size: 0.85rem;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 720px) {
+  .nav-toggle { display: block; }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: var(--pitch);
+    width: 200px;
+    padding: 16px;
+    gap: 14px;
+  }
+
+  .nav-links.open { display: flex; }
+
+  .fanzone-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
